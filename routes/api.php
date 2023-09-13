@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+//Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
+
+Route::get('/ean13/', [\App\Http\Controllers\BarCodeController::class, 'generate']);
+Route::get('/qr/', [\App\Http\Controllers\QRCodeController::class, 'generate']);
