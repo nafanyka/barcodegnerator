@@ -1,10 +1,14 @@
 version: '3.8'
 
 services:
-  app:
+  barcodegenerator:
     build: ./docker/images/php
+    image: barcodegenerator:latest
     ports:
-      - '8000:8000'
+      - '8000:80'
     volumes:
-      - ./:/var/www:cached
+      - ./docker/images/php/app/.:/var/www:cached
 
+# docker-compose build
+# docker tag barcodegenerator:latest nafanyka/barcodegenerator:latest
+# docker push nafanyka/barcodegenerator:latest
